@@ -1,21 +1,20 @@
-import time
-x = [*range(1, 1000000)]
-c = 5000
+A = [1, 2, 3, 3, 3, 5]
+x = 3
 
 
-def find_insert_position_2(lst, b):
+def find_insert_position(lst, b):
+    
     len_lst = len(lst)
-
+    curr_i = round(len_lst / 2)
+    max_i = len_lst - 1
+    min_i = 0
+    
     if len_lst == 0:
         lst = [b]
     if b <= lst[0]:
         return 0
     if b > lst[len(lst) - 1]:
-        return 0
-
-    curr_i = round((len_lst)/2)
-    max_i = len_lst - 1
-    min_i = 0
+        return len(lst)
 
     while max_i - min_i != 1:
         if b <= lst[curr_i]:
@@ -27,6 +26,5 @@ def find_insert_position_2(lst, b):
 
     return curr_i
 
-print(find_insert_position_2(x, c))
 
-
+print(find_insert_position(A, x))
